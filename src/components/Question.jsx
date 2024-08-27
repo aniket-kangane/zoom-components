@@ -1,5 +1,6 @@
 import { useState } from "react";
 import QuestionType from "./QuestionType";
+import QuestionTimer from "./QuestionTimer";
 
 const Question = ({
   askTo,
@@ -60,7 +61,11 @@ const Question = ({
               </span>
             )}
           </div>
-          <span>~{duration} mins</span>
+          {!isCurrent ? (
+            <span>~{duration} mins</span>
+          ) : (
+            <QuestionTimer time={duration} />
+          )}
         </div>
       </div>
     </div>
